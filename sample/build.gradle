@@ -1,0 +1,42 @@
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.jenzz:plugin:$rootProject.ext.versionNumber"
+  }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.jenzz.buildconstants'
+
+android {
+  compileSdkVersion 23
+  buildToolsVersion '23.0.2'
+
+  defaultConfig {
+    applicationId 'com.jenzz.buildconstants.sample'
+    minSdkVersion 16
+    targetSdkVersion 23
+    versionCode 1
+    //noinspection GroovyAssignabilityCheck
+    versionName rootProject.ext.versionNumber
+  }
+}
+
+dependencies {
+  compile 'com.android.support:appcompat-v7:23.1.1'
+}
+
+buildConstants {
+  javaFileName 'SampleBuildConstants'
+  xmlFileName 'sample_build_constants'
+
+  constants {
+    aBoolean = true
+    aString = 'string'
+    aNumber = 123
+  }
+}

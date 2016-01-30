@@ -1,0 +1,33 @@
+plugins {
+  id 'groovy'
+  id 'maven'
+  id 'com.gradle.plugin-publish' version '0.9.3'
+}
+
+dependencies {
+  compile gradleApi()
+  compile 'com.android.tools.build:gradle:2.0.0-alpha9'
+
+  testCompile 'org.assertj:assertj-core:3.3.0'
+  testCompile 'org.mockito:mockito-core:2.0.42-beta'
+}
+
+//noinspection GroovyUnusedAssignment
+archivesBaseName = 'buildconstants'
+group = 'com.jenzz'
+version = rootProject.ext.versionNumber
+
+pluginBundle {
+  website = 'https://github.com/jenzz/gradle-android-buildconstants-plugin'
+  vcsUrl = 'https://github.com/jenzz/gradle-android-buildconstants-plugin'
+  description = 'A Gradle plugin for Android which generates both Java and XML constants as part of the build process.'
+  tags = ['java', 'groovy', 'gradle', 'buildconstants', 'buildconfig', 'constants', 'generated']
+
+  //noinspection GroovyAssignabilityCheck
+  plugins {
+    buildConstantsPlugin {
+      id = 'com.jenzz.buildconstants'
+      displayName = 'Android build constants generator'
+    }
+  }
+}

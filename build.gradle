@@ -1,0 +1,18 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.0.0-beta4'
+  }
+}
+
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+
+ext {
+  versionNumber = '1.0.0'
+}

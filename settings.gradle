@@ -1,0 +1,3 @@
+include ':plugin', ':sample'
+
+project(':plugin').name = 'buildconstants'

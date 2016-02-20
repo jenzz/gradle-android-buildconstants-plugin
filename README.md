@@ -108,7 +108,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.jenzz:plugin:1.0.0"
+    classpath "gradle.plugin.com.jenzz:buildconstants:1.0.0"
   }
 }
 

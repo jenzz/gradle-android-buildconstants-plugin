@@ -5,7 +5,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.jenzz:plugin:$rootProject.ext.versionNumber"
+    classpath "gradle.plugin.com.jenzz:buildconstants:$rootProject.pluginVersion"
   }
 }
 
@@ -22,7 +22,7 @@ android {
     targetSdkVersion 23
     versionCode 1
     //noinspection GroovyAssignabilityCheck
-    versionName rootProject.ext.versionNumber
+    versionName rootProject.pluginVersion
   }
 }
 

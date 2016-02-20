@@ -15,7 +15,7 @@ dependencies {
 //noinspection GroovyUnusedAssignment
 archivesBaseName = 'buildconstants'
 group = 'com.jenzz'
-version = rootProject.ext.versionNumber
+version = rootProject.pluginVersion
 
 pluginBundle {
   website = 'https://github.com/jenzz/gradle-android-buildconstants-plugin'

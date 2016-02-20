@@ -1,7 +1,6 @@
 package com.jenzz.buildconstants
 
 import com.android.build.gradle.AppPlugin
-import com.android.build.gradle.LibraryPlugin
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -10,9 +9,9 @@ class BuildConstantsPlugin implements Plugin<Project> {
 
   @Override
   void apply(Project project) {
-    if (!project.plugins.findPlugin(AppPlugin) && !project.plugins.findPlugin(LibraryPlugin)) {
+    if (!project.plugins.findPlugin(AppPlugin)) {
       throw new GradleException(
-          'You must apply the Android plugin or the Android library plugin before using the \'com.jenzz.buildconstants\' plugin')
+          'You must apply the Android plugin before using the \'com.jenzz.buildconstants\' plugin')
     }
 
     project.extensions.add 'buildConstants', BuildConstantsExtension

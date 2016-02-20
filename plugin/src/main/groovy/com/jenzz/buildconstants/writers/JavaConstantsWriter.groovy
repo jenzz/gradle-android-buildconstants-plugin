@@ -27,7 +27,8 @@ public class JavaConstantsWriter extends BaseConstantsWriter {
     "*/" + "\n" +
     "package $packageName;" + "\n" +
     "\n" +
-    "public final class $className {" + "\n"
+    "public final class $className {" + "\n" +
+    "\n"
     //@formatter:on
   }
 
@@ -52,7 +53,13 @@ public class JavaConstantsWriter extends BaseConstantsWriter {
   @NonNull
   @Override
   String writeFooter() {
+    //@formatter:off
+    "\n" +
+    "\t" + "private $className() {" + "\n" +
+    "\t" + "\t" + "throw new AssertionError(\"No instances.\");" + "\n" +
+    "\t" + "}" + "\n" +
     "}"
+    //@formatter:on
   }
 
   @NonNull

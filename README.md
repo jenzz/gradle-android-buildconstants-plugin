@@ -4,7 +4,7 @@ A Gradle plugin for Android which generates both Java and XML constants as part 
 
 Why do I need this?
 ===================
-In short: To define constants that are accessible from everywhere in your Android app and/or library.
+In short: To define constants that are accessible from everywhere in your Android app.
 
 In long: There are two ways to define constants in Android. Both have their limitations.
 * Creating constants using `buildConfigField` only adds entries to `BuildConfig.java` which means you cannot access them via XML.
@@ -42,9 +42,14 @@ The plugin will then generate both a Java and an XML version of the constants li
 **Java:**
 ```java
 public final class BuildConstants {
+  
   public static final boolean ABOOLEAN = true;
   public static final String ASTRING = "string";
   public static final int ANUMBER = 123;
+  
+  private BuildConstants() {
+    throw new AssertionError("No instances.");
+  }
 }
 ```
 

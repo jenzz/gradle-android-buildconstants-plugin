@@ -108,7 +108,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.jenzz:buildconstants:1.0.0"
+    classpath "gradle.plugin.com.jenzz:buildconstants:1.0.1"
   }
 }
 
@@ -119,7 +119,7 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
 
 ```groovy
 plugins {
-  id "com.jenzz.buildconstants" version "1.0.0"
+  id "com.jenzz.buildconstants" version "1.0.1"
 }
 ```
 

@@ -1,4 +1,4 @@
-Android Build Constants Plugin
+Android Build Constants Plugin [![Build Status](https://travis-ci.org/jenzz/gradle-android-buildconstants-plugin.svg?branch=master)](https://travis-ci.org/jenzz/gradle-android-buildconstants-plugin)
 ==============================
 A Gradle plugin for Android which generates both Java and XML constants as part of the build process.
 

@@ -17,17 +17,19 @@ class BuildConstantsPlugin implements Plugin<Project> {
     project.extensions.add 'buildConstants', BuildConstantsExtension
 
     project.afterEvaluate {
-      project.android.buildTypes.each { buildType ->
 
-        def generateConstantsTask = project.tasks.create([name       : "generate${buildType.name.capitalize()}BuildConstants",
+      project.android.applicationVariants.all { variant ->
+
+        def variantName = variant.name.capitalize()
+        def generateConstantsTask = project.tasks.create([name       : "generate${variantName}BuildConstants",
                                                           description: "Generates both Java and XML build constants",
                                                           type       : BuildConstantsTask], {
-          buildTypeName = buildType.name
+          variantDir = variant.dirName
           constants = project.buildConstants.constants
         })
 
         def processResourcesTask = project.tasks.find {
-          def pattern = ~/process${buildType.name.capitalize()}Resources$/
+          def pattern = ~/process${variantName}Resources$/
           pattern.matcher(it.name).matches()
         }
 

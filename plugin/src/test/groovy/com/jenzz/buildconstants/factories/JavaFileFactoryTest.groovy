@@ -15,7 +15,7 @@ class JavaFileFactoryTest {
 
   private final appId = "appId"
   private final buildDir = "buildDir"
-  private final buildTypeName = "buildTypeName"
+  private final variantDir = "variantDir"
   private final fileName = "fileName"
 
   @Mock private Mapper<String, String> mockAppIdToPathMapper
@@ -26,7 +26,7 @@ class JavaFileFactoryTest {
   void setUp() {
     initMocks this
 
-    fileFactory = new JavaFileFactory(appId, buildDir, buildTypeName, mockAppIdToPathMapper)
+    fileFactory = new JavaFileFactory(appId, buildDir, variantDir, mockAppIdToPathMapper)
   }
 
   @Test
@@ -42,7 +42,7 @@ class JavaFileFactoryTest {
     when(mockAppIdToPathMapper.map(anyString())).thenReturn appPath
 
     File actual = fileFactory.create fileName
-    File expected = new File("${buildDir}/generated/source/buildConfig/${buildTypeName}/${appPath}/${fileName}.java")
+    File expected = new File("${buildDir}/generated/source/buildConfig/${variantDir}/${appPath}/${fileName}.java")
 
     assertThat actual.path isEqualTo expected.path
   }

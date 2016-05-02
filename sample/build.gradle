@@ -24,6 +24,32 @@ android {
     //noinspection GroovyAssignabilityCheck
     versionName rootProject.pluginVersion
   }
+
+  buildTypes {
+    debug {
+      applicationIdSuffix '.debug'
+    }
+  }
+
+  flavorDimensions 'abi', 'version'
+
+  productFlavors {
+    free {
+      dimension 'version'
+    }
+    pro {
+      dimension 'version'
+    }
+    arm {
+      dimension "abi"
+    }
+    mips {
+      dimension "abi"
+    }
+    x86 {
+      dimension "abi"
+    }
+  }
 }
 
 dependencies {

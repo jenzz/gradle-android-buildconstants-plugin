@@ -9,12 +9,12 @@ class XmlFileFactoryTest {
   @Test
   void createsCorrectPath() {
     String buildDir = "buildDir"
-    String buildTypeName = "buildTypeName"
+    String variantDir = "variantDir"
     String fileName = "fileName"
-    FileFactory fileFactory = new XmlFileFactory(buildDir, buildTypeName)
+    FileFactory fileFactory = new XmlFileFactory(buildDir, variantDir)
 
     File actual = fileFactory.create fileName
-    File expected = new File("${buildDir}/intermediates/res/merged/${buildTypeName}/values/${fileName}.xml")
+    File expected = new File("${buildDir}/intermediates/res/merged/${variantDir}/values/${fileName}.xml")
 
     assertThat actual.path isEqualTo expected.path
   }

@@ -16,6 +16,7 @@ import org.gradle.api.tasks.TaskAction
 
 class BuildConstantsTask extends DefaultTask {
 
+  @Input String appId
   @Input String variantDir
   @Input Map<String, Object> constants
 
@@ -43,7 +44,7 @@ class BuildConstantsTask extends DefaultTask {
   private File createJavaFile() {
     String fileNameInput = project.buildConstants.javaFileName
     String fileName = javaFileName = new JavaFileNameSanitizer().sanitize fileNameInput
-    new JavaFileFactory(appId(), project.buildDir.path, variantDir, new AppIdToPathMapper()).create fileName
+    new JavaFileFactory(appId, project.buildDir.path, variantDir, new AppIdToPathMapper()).create fileName
   }
 
   @NonNull
@@ -54,15 +55,10 @@ class BuildConstantsTask extends DefaultTask {
   }
 
   private void brewJava() {
-    new JavaConstantsWriter(javaFile, appId(), javaFileName).write constants
+    new JavaConstantsWriter(javaFile, appId, javaFileName).write constants
   }
 
   private void brewXml() {
     new XmlConstantsWriter(xmlFile).write constants
-  }
-
-  @NonNull
-  private String appId() {
-    project.android.defaultConfig.applicationId
   }
 }

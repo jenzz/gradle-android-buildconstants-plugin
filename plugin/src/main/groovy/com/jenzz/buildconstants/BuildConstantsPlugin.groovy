@@ -24,6 +24,7 @@ class BuildConstantsPlugin implements Plugin<Project> {
         def generateConstantsTask = project.tasks.create([name       : "generate${variantName}BuildConstants",
                                                           description: "Generates both Java and XML build constants",
                                                           type       : BuildConstantsTask], {
+          appId = variant.applicationId
           variantDir = variant.dirName
           constants = project.buildConstants.constants
         })

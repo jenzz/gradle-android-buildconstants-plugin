@@ -104,22 +104,22 @@ Build script snippet for use in all Gradle versions:
 buildscript {
   repositories {
     maven {
-      url "https://plugins.gradle.org/m2/"
+      url 'https://plugins.gradle.org/m2/'
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.jenzz:buildconstants:1.0.1"
+    classpath 'gradle.plugin.com.jenzz:buildconstants:1.1.0'
   }
 }
 
-apply plugin: "com.jenzz.buildconstants"
+apply plugin: 'com.jenzz.buildconstants'
 ```
 
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
 ```groovy
 plugins {
-  id "com.jenzz.buildconstants" version "1.0.1"
+  id 'com.jenzz.buildconstants' version '1.1.0'
 }
 ```
 

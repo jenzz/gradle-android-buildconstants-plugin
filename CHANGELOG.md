@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+Version 1.1.0 *(2016/05/04)*
+--------------------------
+* Add support for product flavors (#1)
+
 Version 1.0.1 *(2016/02/20)*
 --------------------------
 * Fix artifact name

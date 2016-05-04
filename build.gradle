@@ -14,5 +14,5 @@ allprojects {
 }
 
 ext {
-  pluginVersion = '1.0.1'
+  pluginVersion = '1.1.0'
 }
